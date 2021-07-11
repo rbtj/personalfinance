@@ -1,0 +1,17 @@
+mf=kite.mf_holdings()
+
+i=0
+len(mf)
+
+current=0
+base=0
+
+while(i<len(mf)):
+    print(i)
+    current+=mf[i]['last_price']*mf[i]['quantity']
+    base+=(mf[i]['last_price']*mf[i]['quantity'])/(1+mf[i]['xirr']/100)
+    i+=1
+    print(current)
+    print(base)
+
+print("effective_XIRR",round(100*(current/base-1),2),"%")
